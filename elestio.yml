@@ -1,0 +1,47 @@
+ports:
+  - protocol: "HTTPS"
+    targetProtocol: "HTTPS"
+    listeningPort: "443"
+    targetPort: "6901"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "14901"
+    targetPort: "4901"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
+environments:
+  - key: "SOFTWARE_VERSION_TAG"
+    value: "latest"
+  - key: "ADMIN_LOGIN"
+    value: "root"
+  - key: "ADMIN_PASSWORD"
+    value: "random_password"
+config:
+  runTime: "dockerCompose"
+  version: ""
+  framework: ""
+  buildCommand: "docker-compose build"
+  buildDir: "/"
+  runCommand: "docker-compose up -d"
+lifeCycleConfig:
+  preInstallCommand: "./scripts/preInstall.sh"
+  postInstallCommand: "./scripts/postInstall.sh"
+  preBackupCommand: "./scripts/preBackup.sh"
+  postBackupCommand: "./scripts/postBackup.sh"
+  preRestoreCommand: "./scripts/preRestore.sh"
+  postRestoreCommand: "./scripts/postRestore.sh"
+webUI:
+  - url: "https://[CI_CD_DOMAIN]"
+    label: "Web Access"
+    login: "[ADMIN_LOGIN]"
+    password: "[ADMIN_PASSWORD]"

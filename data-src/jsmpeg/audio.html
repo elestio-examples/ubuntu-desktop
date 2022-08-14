@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio</title>
+</head>
+<body>
+<canvas id="video-canvas" style="width: 0px;height: 0px;"></canvas>
+<script src="jsmpeg.min.js"></script>
+<script type="text/javascript">
+    console.log("start")
+    var canvas = document.getElementById('video-canvas');
+    var url = 'wss://' + window.location.hostname + ":14901" + '/?session=' + makeid(16) + '&ts=' + (+new Date());
+    var player = new JSMpeg.Player(url, {
+        canvas: canvas, audioBufferSize: 128 * 64,
+        autoplay: true, pauseWhenHidden: false,
+    });
+    document.addEventListener('touchstart', function () {
+        player.audioOut.unlock(function () {
+            alert('unlocked!');
+        });
+    });
+
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * 
+    charactersLength));
+    }
+    return result;
+    }
+</script>
+</body>
+</html>

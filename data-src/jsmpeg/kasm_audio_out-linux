@@ -1,0 +1,5 @@
+#!/bin/bash
+HOME=/var/run/pulse pulseaudio --start
+node /dockerstartup/jsmpeg/websocket-relay.js audio 8081 4901 &
+HOME=/var/run/pulse no_proxy=127.0.0.1 ffmpeg -v verbose -f pulse -fragment_size 200 -ar 44100 -i default -f mpegts -correct_ts_overflow 0 -codec:a mp2 -b:a 128k -ac 1 -muxdelay 0.001 http://127.0.0.1:8081/audio &
+echo "Audio server started :)"
