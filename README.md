@@ -10,7 +10,6 @@ This comes with several softwares pre-installed:
 - VS Code
 - Telegram
 - Thunderbird
-- MetaTrader 5
 - Wine (Windows compatibility, you can install/run any windows program)
 
 All the data is persisted in ./data on the host
