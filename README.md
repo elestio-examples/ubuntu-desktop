@@ -12,8 +12,9 @@ This comes with several softwares pre-installed:
 - Thunderbird
 - Wine (Windows compatibility, you can install/run any windows program)
 
-All the data is persisted in ./data on the host
-Sound is working as well, it's using jsmpeg websocket relay
+All the data is persisted in ./data on the host.
+
+Audio is working as well! (thanks to PulseAudio + ffmpeg + jsmpeg + websockets)
 
 <br/>
 <img src="screenshots/Ubuntu-desktop-2.jpg" alt="Ubuntu Desktop in docker - Apps" width="100%" />
