@@ -17,8 +17,7 @@ Sound is working as well, it's using jsmpeg websocket relay
 
 <br/>
 <img src="screenshots/Ubuntu-desktop-2.jpg" alt="Ubuntu Desktop in docker - Apps" width="100%" />
-<br/><br/>
-<img src="screenshots/Ubuntu-desktop-1.jpg" alt="Ubuntu Desktop in docker - Speedtest " width="100%" />
+<br/>
 
 # Once deployed ...
 
