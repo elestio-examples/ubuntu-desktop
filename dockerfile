@@ -1,4 +1,4 @@
-ARG BASE_TAG="develop"
+ARG BASE_TAG="1.11.0"
 ARG BASE_IMAGE="core-ubuntu-focal"
 FROM kasmweb/$BASE_IMAGE:$BASE_TAG
 
@@ -65,9 +65,9 @@ RUN bash $INST_SCRIPTS/only_office/install_only_office.sh  && rm -rf $INST_SCRIP
 COPY ./src/ubuntu/install/gimp $INST_SCRIPTS/gimp/
 RUN bash $INST_SCRIPTS/gimp/install_gimp.sh  && rm -rf $INST_SCRIPTS/gimp/
 
-### Install NodeJS 16
+### Install NodeJS 18
 RUN sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 RUN sudo apt -y install nodejs
 
 #ADD ./src/common/scripts $STARTUPDIR
